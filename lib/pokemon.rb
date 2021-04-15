@@ -10,6 +10,7 @@ class Pokemon
         @db = db
     end
 
+    
     def self.save(name, type, db)
           sql = <<-SQL
             INSERT INTO pokemon (name, type)
@@ -22,4 +23,5 @@ class Pokemon
         row = db.execute("SELECT * FROM pokemon WHERE id = ?", id).flatten
         self.new(id: row[0], name: row[1], type: row[2], db: db)
     end
+    
 end
